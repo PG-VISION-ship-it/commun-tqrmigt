@@ -22,7 +22,7 @@ function escapeHtml(str){
   return div.innerHTML;
 }
 
-const API_BASE = location.port === "3000" ? "/api" : "http://localhost:3000/api";
+const API_BASE = "/api";
 
 async function apiGet(path){
   const res = await fetch(`${API_BASE}${path}`);
