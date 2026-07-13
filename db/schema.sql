@@ -49,6 +49,36 @@ CREATE TABLE IF NOT EXISTS services (
 ) ENGINE=InnoDB;
 
 -- ---------------------------------------------------------
+-- Table : users
+-- Comptes administrateurs / editeurs du back-office
+-- ---------------------------------------------------------
+CREATE TABLE IF NOT EXISTS users (
+  id            INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  username      VARCHAR(100) NOT NULL UNIQUE,
+  email         VARCHAR(255) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  full_name     VARCHAR(200) NOT NULL,
+  role          ENUM('admin', 'editor') DEFAULT 'admin',
+  created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ---------------------------------------------------------
+-- Table : contacts
+-- Messages de contact envoyes par les citoyens
+-- ---------------------------------------------------------
+CREATE TABLE IF NOT EXISTS contacts (
+  id         INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  name       VARCHAR(200) NOT NULL,
+  email      VARCHAR(255) NOT NULL,
+  phone      VARCHAR(50) DEFAULT NULL,
+  subject    VARCHAR(255) NOT NULL,
+  message    TEXT NOT NULL,
+  is_read    TINYINT(1) DEFAULT 0,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ---------------------------------------------------------
 -- Table : site_settings
 -- Paramètres configurables du site
 -- ---------------------------------------------------------

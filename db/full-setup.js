@@ -132,6 +132,15 @@ async function fullSetup() {
       console.log('Sample services inserted.');
     }
 
+    const [contactCount] = await connection.query('SELECT COUNT(*) AS c FROM contacts');
+    if (contactCount[0].c === 0) {
+      await connection.query(`INSERT INTO contacts (name, email, phone, subject, message, is_read) VALUES
+        ('Mohamed Ait Baha', 'mohamed@example.com', '0612345678', 'Demande d''attestation de residence', 'Bonjour, je souhaite obtenir une attestation de residence. Je suis resident au douar Ait Bouguemez. Merci.', 0),
+        ('Fatima Zahra Ouazzani', 'fatima@example.com', '0698765432', 'Information sur les horaires', 'Quels sont les horaires d''ouverture du guichet administratif ?', 1),
+        ('Hassan El Mansouri', 'hassan@example.com', '0654321987', 'Suivi de dossier permis de construire', 'Bonjour, j''ai deposer un dossier de permis de construire il y a 3 semaines. Comment puis-je suivre ?', 0)`);
+      console.log('Sample contacts inserted.');
+    }
+
     console.log('\nSetup complete! You can now start the server with: npm start');
   } catch (err) {
     console.error('Setup error:', err.message);

@@ -138,8 +138,7 @@ router.get('/actualites', authMiddleware, async (req, res) => {
       params.push(s, s, s);
       countParams.push(s, s, s);
     }
-    sql += ' ORDER BY created_at DESC LIMIT ? OFFSET ?';
-    params.push(limit, offset);
+    sql += ' ORDER BY created_at DESC LIMIT ' + limit + ' OFFSET ' + offset;
 
     const [rows] = await pool.execute(sql, params);
     const [[{ total }]] = await pool.execute(countSql, countParams);
@@ -271,8 +270,7 @@ router.get('/services', authMiddleware, async (req, res) => {
       sql += where;
       countSql += where;
     }
-    sql += ' ORDER BY ordre_affichage ASC, id ASC LIMIT ? OFFSET ?';
-    params.push(limit, offset);
+    sql += ' ORDER BY ordre_affichage ASC, id ASC LIMIT ' + limit + ' OFFSET ' + offset;
 
     const [rows] = await pool.execute(sql, params);
     const [[{ total }]] = await pool.execute(countSql, countParams);
@@ -376,9 +374,9 @@ router.get('/messages', authMiddleware, async (req, res) => {
       sql += ' WHERE is_read = 0';
       countSql += ' WHERE is_read = 0';
     }
-    sql += ' ORDER BY created_at DESC LIMIT ? OFFSET ?';
+    sql += ' ORDER BY created_at DESC LIMIT ' + limit + ' OFFSET ' + offset;
 
-    const [rows] = await pool.execute(sql, [limit, offset]);
+    const [rows] = await pool.execute(sql);
     const [[{ total }]] = await pool.execute(countSql);
     res.json({ data: rows, total, limit, offset });
   } catch (err) {

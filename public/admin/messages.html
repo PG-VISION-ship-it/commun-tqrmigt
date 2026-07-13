@@ -110,7 +110,12 @@
         renderPagination();
         var hasRead = d.data.some(function(m) { return m.is_read; });
         document.getElementById('btn-delete-all').style.display = hasRead ? 'inline-flex' : 'none';
-      }).catch(function() { AdminToast('Erreur de chargement', 'error'); });
+      }).catch(function() {
+        var tbody = document.getElementById('messages-table');
+        tbody.innerHTML = '<tr><td colspan="6" class="table-empty">Erreur de chargement. Verifiez que le serveur est demarre.</td></tr>';
+        document.getElementById('pagination').innerHTML = '';
+        AdminToast('Erreur de chargement', 'error');
+      });
     }
 
     function renderPagination() {

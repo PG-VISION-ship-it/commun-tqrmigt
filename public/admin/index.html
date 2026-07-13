@@ -73,6 +73,12 @@
             return '<tr><td>' + AdminUtils.escapeHtml(AdminUtils.truncate(m.name, 25)) + '</td><td>' + AdminUtils.escapeHtml(AdminUtils.truncate(m.subject, 30)) + '</td><td>' + (m.is_read ? '<span style="color:var(--text-light)">Lu</span>' : '<span style="color:var(--danger)">Non lu</span>') + '</td></tr>';
           }).join('');
         }).catch(function() {
+          document.getElementById('stat-news').textContent = '0';
+          document.getElementById('stat-services').textContent = '0';
+          document.getElementById('stat-messages').textContent = '0';
+          document.getElementById('stat-unread').textContent = '0';
+          document.getElementById('recent-news').innerHTML = '<tr><td colspan="3" class="table-empty">Erreur de chargement</td></tr>';
+          document.getElementById('recent-messages').innerHTML = '<tr><td colspan="3" class="table-empty">Erreur de chargement</td></tr>';
           AdminToast('Erreur lors du chargement des stats', 'error');
         });
       }

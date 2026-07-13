@@ -1,6 +1,30 @@
 USE commune_tarmigt;
 
 -- ---------------------------------------------------------
+-- Utilisateur admin (mot de passe: admin123)
+-- ---------------------------------------------------------
+INSERT IGNORE INTO users (username, email, password_hash, full_name, role) VALUES
+('admin', 'admin@commune-tarmigt.ma', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Administrateur', 'admin');
+
+-- ---------------------------------------------------------
+-- Paramètres du site
+-- ---------------------------------------------------------
+INSERT IGNORE INTO site_settings (setting_key, setting_value) VALUES
+('site_name', 'Commune de Tarmigt'),
+('site_description', 'Site officiel de la Commune de Tarmigt, Province de Ouarzazate'),
+('site_email', 'contact@tarmigt.ma'),
+('site_phone', '05458585525'),
+('site_address', 'Siege de la commune, Tarmigt, Ouarzazate');
+
+-- ---------------------------------------------------------
+-- Contacts / messages de test
+-- ---------------------------------------------------------
+INSERT INTO contacts (name, email, phone, subject, message, is_read) VALUES
+('Mohamed Ait Baha', 'mohamed@example.com', '0612345678', 'Demande d''attestation de residence', 'Bonjour, je souhaite obtenir une attestation de residence. Je suis resident au douar Ait Bouguemez. Merci.', 0),
+('Fatima Zahra Ouazzani', 'fatima@example.com', '0698765432', 'Information sur les horaires', 'Quels sont les horaires d''ouverture du guichet administratif ? Je dois faire une demande de certificat de naissance.', 1),
+('Hassan El Mansouri', 'hassan@example.com', '0654321987', 'Suivi de dossier permis de construire', 'Bonjour, j''ai deposer un dossier de permis de construire il y a 3 semaines. Comment puis-je suivre l''avancement ?', 0);
+
+-- ---------------------------------------------------------
 -- Actualités
 -- ---------------------------------------------------------
 INSERT INTO actualites (titre_fr, titre_ar, contenu_fr, contenu_ar, date_publication) VALUES
@@ -15,7 +39,7 @@ INSERT INTO actualites (titre_fr, titre_ar, contenu_fr, contenu_ar, date_publica
   "Campagne de vaccination du bétail dans les douars de la commune",
   "حملة تلقيح المواشي بدواوير الجماعة",
   "En collaboration avec la direction provinciale de l'agriculture, la commune organise une campagne gratuite de vaccination du bétail contre les maladies saisonnières dans l'ensemble des douars relevant de son territoire. Les éleveurs sont invités à se présenter aux points de rassemblement communiqués par les autorités locales.",
-  "بتعاون مع المديرية الإقليمية للفلاحة، تنظم الجماعة حملة مجانية لتلقيح المواشي ضد الأمراض الموسمية بجميع الدواوير التابعة لترابها. يدعى مربو الماشية للحضور إلى نقط التجمع التي ستعلن عنها السلطات المحلية.",
+  "بتعاون مع المديرية الإقليمية للفلاحة، تنظم الجماعة حملة مجانية لتلقيح المواشي ضد الأمراض الموسمية بجميع الدواوير التابعة لترابها. يدعى مربو الماشية للحضور إلى نقاط التجمع التي ستعلن عنها السلطات المحلية.",
   "2026-06-10"
 ),
 (

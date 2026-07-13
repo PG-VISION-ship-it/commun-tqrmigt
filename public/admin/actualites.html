@@ -144,7 +144,12 @@
         }).join('');
         totalPages = Math.ceil(d.total / limit);
         renderPagination();
-      }).catch(function() { AdminToast('Erreur de chargement', 'error'); });
+      }).catch(function() {
+        var tbody = document.getElementById('news-table');
+        tbody.innerHTML = '<tr><td colspan="6" class="table-empty">Erreur de chargement. Verifiez que le serveur est demarre.</td></tr>';
+        document.getElementById('pagination').innerHTML = '';
+        AdminToast('Erreur de chargement', 'error');
+      });
     }
 
     function renderPagination() {
