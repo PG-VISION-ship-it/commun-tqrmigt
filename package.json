@@ -19,6 +19,9 @@
     "multer": "^2.2.0",
     "mysql2": "^3.22.5"
   },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "devDependencies": {
     "nodemon": "^3.1.4"
   }
