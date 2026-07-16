@@ -96,7 +96,7 @@
         var initials = parts[0].charAt(0).toUpperCase();
         if (parts.length > 1) initials += parts[parts.length - 1].charAt(0).toUpperCase();
         document.getElementById('profile-avatar').textContent = initials;
-      }).catch(function() { AdminToast(I18n.t('news_toast_load_error'), 'error'); });
+      }).catch(function() { AdminToast(I18n.t('prof_error'), 'error'); });
     }
 
     document.getElementById('profile-form').addEventListener('submit', function(e) {

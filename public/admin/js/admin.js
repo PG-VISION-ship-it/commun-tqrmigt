@@ -72,6 +72,7 @@
       return fetch('/api/admin/' + url, { method: 'POST', headers: headers, body: formData }).then(function (res) {
         return res.json().then(function (data) {
           if (res.status === 401) { AdminAuth.logout(); return Promise.reject(data); }
+          if (res.status === 403) { AdminToast(data.error || I18n.t('access_forbidden'), 'error'); return Promise.reject(data); }
           if (!res.ok) return Promise.reject(data);
           return data;
         });
@@ -212,6 +213,14 @@
       var div = document.createElement('div');
       div.textContent = str;
       return div.innerHTML;
+    },
+    escapeAttr: function (str) {
+      if (!str) return '';
+      return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    },
+    escapeJsString: function (str) {
+      if (!str) return '';
+      return str.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '\\"').replace(/\n/g, '\\n').replace(/\r/g, '\\r');
     },
     truncate: function (str, len) {
       if (!str) return '';
