@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Tajawal:wght@200;300;400;500;700;800;900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/admin.css">
-  <script src="js/translations.js"></script>
-  <script src="js/i18n.js"></script>
+  <link rel="stylesheet" href="/admin/css/admin.css">
+  <script src="/admin/js/translations.js"></script>
+  <script src="/admin/js/i18n.js"></script>
 </head>
 <body data-i18n-page="set_title">
   <div class="admin-wrapper">
@@ -79,10 +79,10 @@
               <div class="card-header"><h3 data-i18n="set_quick_actions">Actions rapides</h3></div>
               <div class="card-body">
                 <div style="display:flex;flex-direction:column;gap:10px">
-                  <a href="actualites.html" class="btn btn-outline" style="justify-content:center" data-i18n="set_manage_news">Gerer les actualites</a>
-                  <a href="services.html" class="btn btn-outline" style="justify-content:center" data-i18n="set_manage_services">Gerer les services</a>
-                  <a href="messages.html" class="btn btn-outline" style="justify-content:center" data-i18n="set_view_messages">Voir les messages</a>
-                  <a href="users.html" class="btn btn-outline" style="justify-content:center" data-i18n="set_manage_users">Gerer les utilisateurs</a>
+                  <a href="/admin/actualites.html" class="btn btn-outline" style="justify-content:center" data-i18n="set_manage_news">Gerer les actualites</a>
+                  <a href="/admin/services.html" class="btn btn-outline" style="justify-content:center" data-i18n="set_manage_services">Gerer les services</a>
+                  <a href="/admin/messages.html" class="btn btn-outline" style="justify-content:center" data-i18n="set_view_messages">Voir les messages</a>
+                  <a href="/admin/users.html" class="btn btn-outline" style="justify-content:center" data-i18n="set_manage_users">Gerer les utilisateurs</a>
                   <a href="/" class="btn btn-outline" style="justify-content:center" target="_blank" data-i18n="set_view_site">Voir le site public</a>
                 </div>
               </div>
@@ -105,7 +105,7 @@
       </div>
     </main>
   </div>
-  <script src="js/admin.js"></script>
+  <script src="/admin/js/admin.js"></script>
   <script>
     if (!initAdminPage('settings', 'set_heading')) throw new Error('Auth required');
 

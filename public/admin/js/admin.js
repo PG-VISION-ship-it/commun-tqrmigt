@@ -25,7 +25,7 @@
     isLoggedIn: function () { return !!localStorage.getItem(TOKEN_KEY); },
     checkAuth: function () {
       if (!this.isLoggedIn()) {
-        window.location.href = 'login.html';
+        window.location.href = '/admin/login.html';
         return false;
       }
       return true;
@@ -39,7 +39,7 @@
         }).catch(function () {});
       }
       this.clearAuth();
-      window.location.href = 'login.html';
+      window.location.href = '/admin/login.html';
     }
   };
 
@@ -131,15 +131,15 @@
       '</div>' +
       '<nav class="sidebar-nav">' +
       '<div class="nav-label">' + I18n.t('nav_menu') + '</div>' +
-      '<a href="index.html" class="' + (activePage === 'dashboard' ? 'active' : '') + '">' + SVG_ICONS.dashboard + ' ' + I18n.t('nav_dashboard') + '</a>' +
-      '<a href="actualites.html" class="' + (activePage === 'actualites' ? 'active' : '') + '">' + SVG_ICONS.news + ' ' + I18n.t('nav_news') + '</a>' +
-      '<a href="services.html" class="' + (activePage === 'services' ? 'active' : '') + '">' + SVG_ICONS.services + ' ' + I18n.t('nav_services') + '</a>' +
-      '<a href="messages.html" class="' + (activePage === 'messages' ? 'active' : '') + '">' + SVG_ICONS.messages + ' ' + I18n.t('nav_messages') + ' <span class="badge" id="unread-badge" style="display:none"></span></a>' +
+      '<a href="/admin/index.html" class="' + (activePage === 'dashboard' ? 'active' : '') + '">' + SVG_ICONS.dashboard + ' ' + I18n.t('nav_dashboard') + '</a>' +
+      '<a href="/admin/actualites.html" class="' + (activePage === 'actualites' ? 'active' : '') + '">' + SVG_ICONS.news + ' ' + I18n.t('nav_news') + '</a>' +
+      '<a href="/admin/services.html" class="' + (activePage === 'services' ? 'active' : '') + '">' + SVG_ICONS.services + ' ' + I18n.t('nav_services') + '</a>' +
+      '<a href="/admin/messages.html" class="' + (activePage === 'messages' ? 'active' : '') + '">' + SVG_ICONS.messages + ' ' + I18n.t('nav_messages') + ' <span class="badge" id="unread-badge" style="display:none"></span></a>' +
       '<div class="nav-label">' + I18n.t('nav_account') + '</div>' +
-      '<a href="profile.html" class="' + (activePage === 'profile' ? 'active' : '') + '">' + SVG_ICONS.profile + ' ' + I18n.t('nav_profile') + '</a>' +
-      '<a href="settings.html" class="' + (activePage === 'settings' ? 'active' : '') + '">' + SVG_ICONS.settings + ' ' + I18n.t('nav_settings') + '</a>' +
+      '<a href="/admin/profile.html" class="' + (activePage === 'profile' ? 'active' : '') + '">' + SVG_ICONS.profile + ' ' + I18n.t('nav_profile') + '</a>' +
+      '<a href="/admin/settings.html" class="' + (activePage === 'settings' ? 'active' : '') + '">' + SVG_ICONS.settings + ' ' + I18n.t('nav_settings') + '</a>' +
       '<div class="nav-label">' + I18n.t('nav_administration') + '</div>' +
-      '<a href="users.html" class="' + (activePage === 'users' ? 'active' : '') + '">' + SVG_ICONS.profile + ' ' + I18n.t('nav_users') + '</a>' +
+      '<a href="/admin/users.html" class="' + (activePage === 'users' ? 'active' : '') + '">' + SVG_ICONS.profile + ' ' + I18n.t('nav_users') + '</a>' +
       '<a href="#" onclick="AdminAuth.logout();return false;" style="margin-top:8px;border-top:1px solid rgba(255,255,255,.1);padding-top:16px">' + SVG_ICONS.logout + ' ' + I18n.t('nav_logout') + '</a>' +
       '</nav>';
   }

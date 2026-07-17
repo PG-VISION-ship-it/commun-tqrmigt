@@ -77,7 +77,8 @@ app.use("/api/services", servicesRouter);
 app.use("/api/admin", adminRouter);
 app.use("/api/chat", chatRouter);
 
-
+/* ── Admin explicit routes ──────────────────────────────────── */
+app.use("/admin", express.static(path.join(__dirname, "public", "admin")));
 
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok", commune: "Tarmigt" });
